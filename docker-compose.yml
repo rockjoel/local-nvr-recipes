@@ -1,0 +1,42 @@
+name: local-nvr-recipes
+
+services:
+  frigate:
+    container_name: frigate-local
+    image: ghcr.io/blakeblackshear/frigate:stable
+    restart: unless-stopped
+    shm_size: "256mb"
+    environment:
+      TZ: Europe/Rome
+      FRIGATE_CAMERA_HOST: "${FRIGATE_CAMERA_HOST}"
+      FRIGATE_CAMERA_USER: "${FRIGATE_CAMERA_USER}"
+      FRIGATE_CAMERA_PASSWORD: "${FRIGATE_CAMERA_PASSWORD}"
+    volumes:
+      - ./config:/config
+      - ./storage:/media/frigate
+      - type: tmpfs
+        target: /tmp/cache
+        tmpfs:
+          size: 1000000000
+    ports:
+      # Solo localhost nell'esempio pubblico
+      - "127.0.0.1:8971:8971"
+      - "127.0.0.1:8554:8554"
+    depends_on:
+      - mosquitto
+    networks:
+      - default
+      - events_internal
+
+  mosquitto:
+    container_name: nvr-mosquitto
+    image: eclipse-mosquitto:2
+    restart: unless-stopped
+    volumes:
+      - ./mqtt/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+    networks:
+      - events_internal
+
+networks:
+  events_internal:
+    internal: true
