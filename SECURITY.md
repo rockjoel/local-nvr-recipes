@@ -1,21 +1,21 @@
-# Sicurezza e privacy (minimo sindacale)
+# Security and privacy (baseline)
 
-## Principi
+## Principles
 
-- Telecamera e NVR restano sulla **LAN** (o VLAN IoT isolata)
-- **Niente port-forward** verso camera, Frigate o MQTT
-- Credenziali e token **solo** in `.env` / secret file locali, mai in Git
-- Accesso remoto solo via **VPN** (mesh/privata), senza esporre porte
-- Registrazioni e eventuali dati biometrici restano **locali** e fuori repo
+- Camera and NVR stay on the **LAN** (or an isolated IoT VLAN)
+- **No port-forward** to the camera, Frigate, or MQTT
+- Credentials and tokens **only** in `.env` / local secret files — never in Git
+- Remote access only via **VPN** (private mesh) — do not expose ports
+- Recordings and any biometric data stay **local** and out of the repo
 
-## Prima di usarlo “per davvero”
+## Before using this “for real”
 
-- [ ] Password uniche su camera e servizi
-- [ ] UPnP disabilitato se il router lo permette
-- [ ] Nessuna porta NVR/camera aperta su Internet
-- [ ] Retention registrazioni limitata al necessario
-- [ ] Notifiche esterne (se le aggiungi) senza mandare frame completi a caso
+- [ ] Unique passwords on camera and services
+- [ ] UPnP disabled if the router allows it
+- [ ] No NVR/camera ports open to the Internet
+- [ ] Recording retention limited to what you need
+- [ ] External notifications (if you add any) without casually sending full frames
 
-## Cosa questo esempio evita di proposito
+## What this example deliberately avoids
 
-Inventari host di casa, IP reali, bot Telegram, whitelist persone, script di rete personali.
+Home host inventories, real IPs, Telegram bots, person whitelists, personal network scripts.
