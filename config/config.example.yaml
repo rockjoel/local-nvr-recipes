@@ -8,7 +8,7 @@ tls:
 birdseye:
   enabled: false
 
-# Credenziali RTSP da variabili d'ambiente (.env)
+# RTSP credentials from environment variables (.env)
 go2rtc:
   streams:
     cam:
