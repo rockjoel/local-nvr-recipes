@@ -5,7 +5,7 @@
 - Telecamera e NVR restano sulla **LAN** (o VLAN IoT isolata)
 - **Niente port-forward** verso camera, Frigate o MQTT
 - Credenziali e token **solo** in `.env` / secret file locali, mai in Git
-- Accesso remoto solo via **VPN** (es. Tailscale), non esponeendo porte
+- Accesso remoto solo via **VPN** (mesh/privata), senza esporre porte
 - Registrazioni e eventuali dati biometrici restano **locali** e fuori repo
 
 ## Prima di usarlo “per davvero”
