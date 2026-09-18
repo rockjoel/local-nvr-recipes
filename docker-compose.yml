@@ -19,7 +19,7 @@ services:
         tmpfs:
           size: 1000000000
     ports:
-      # Solo localhost nell'esempio pubblico
+      # Localhost only in the public example
       - "127.0.0.1:8971:8971"
       - "127.0.0.1:8554:8554"
     depends_on:
