@@ -1,39 +1,39 @@
 # local-nvr-recipes
 
-Ricette **pubbliche e sanitizzate** per un NVR locale con [Frigate](https://frigate.video/) + Docker.
+Public, **sanitized recipes** for a local NVR with [Frigate](https://frigate.video/) + Docker.
 
-Obiettivo: mostrare un approccio **privacy-first** (locale, credenziali fuori da Git, niente port-forward alle telecamere).
+Goal: show a **privacy-first** approach (local, credentials out of Git, no port-forward to cameras).
 
-> Questo repo **non** è il sistema di casa. Non contiene IP reali, inventari rete, token, video o modelli addestrati.
+> This repo is **not** a home system. It has no real IPs, network inventories, tokens, video, or trained models.
 
-## Cosa c’è
+## What’s included
 
-| Percorso | Contenuto |
+| Path | Content |
 |---|---|
-| [`docker-compose.yml`](docker-compose.yml) | Frigate + Mosquitto (MQTT) di esempio |
-| [`config/config.example.yaml`](config/config.example.yaml) | Config Frigate con placeholder |
-| [`.env.example`](.env.example) | Variabili RTSP (da copiare in `.env`, non commitare) |
-| [`mqtt/mosquitto.conf`](mqtt/mosquitto.conf) | Broker MQTT solo rete interna Compose |
-| [`SECURITY.md`](SECURITY.md) | Regole minime di sicurezza/privacy |
-| [`INSTALL.md`](INSTALL.md) | Avvio generico su Linux |
+| [`docker-compose.yml`](docker-compose.yml) | Example Frigate + Mosquitto (MQTT) |
+| [`config/config.example.yaml`](config/config.example.yaml) | Frigate config with placeholders |
+| [`.env.example`](.env.example) | RTSP variables (copy to `.env`, do not commit) |
+| [`mqtt/mosquitto.conf`](mqtt/mosquitto.conf) | MQTT broker on the internal Compose network only |
+| [`SECURITY.md`](SECURITY.md) | Minimum security/privacy rules |
+| [`INSTALL.md`](INSTALL.md) | Generic Linux startup |
 
-## Avvio rapido (Linux)
+## Quick start (Linux)
 
 ```bash
 cp .env.example .env
-# modifica .env con host/user/password della TUA camera (LAN)
+# edit .env with YOUR camera host/user/password (LAN)
 cp config/config.example.yaml config/config.yml
 docker compose up -d
 ```
 
-UI tipica (solo localhost nell’esempio): `http://127.0.0.1:8971`
+Typical UI (localhost only in the example): `http://127.0.0.1:8971`
 
-## Limiti
+## Limits
 
-- Non è una guida di videosorveglianza professionale / certificata
-- Hardware accel (NVIDIA / VAAPI) va adattato alla tua macchina
-- Telegram, face-train, VPN e inventari rete **non** sono inclusi qui di proposito
+- Not a professional / certified video-surveillance guide
+- Hardware accel (NVIDIA / VAAPI) must be adapted to your machine
+- Telegram, face-train, VPN, and network inventories are **intentionally** left out
 
-## Licenza
+## License
 
 [MIT](LICENSE)
